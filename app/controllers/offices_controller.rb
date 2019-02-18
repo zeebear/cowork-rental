@@ -6,6 +6,7 @@ class OfficesController < ApplicationController
   end
 
   def index
+    @offices = Office.all
   end
 
   def show
