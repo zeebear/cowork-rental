@@ -1,4 +1,5 @@
 <h1>Offices</h1>
+<%= link_to 'Add new office', new_office_path %>
 <% @offices.each do |office| %>
-  <%= office.name %>
+  <p><%= office.name %></p>
 <% end %>
