@@ -1,5 +1,5 @@
 class OfficesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :new]
+  skip_before_action :authenticate_user!, only: [:index, :new, :show]
   before_action :set_office, only: [:show, :edit, :update]
 
   def new

@@ -2,14 +2,15 @@ Rails.application.routes.draw do
   root to: 'offices#index'
   namespace :owner do
     resources :offices, only: :index
-    resources :bookings, except: [:index, :create, :delete]
+    resources :bookings, only: [:index, :edit, :update]
   end
 
   resources :offices
+  resources :bookings, only: [:edit, :update, :index, :delete]
 
   devise_for :users
   resources :offices, only: [:new, :create, :index, :show] do
-    resources :booking, only: [:new, :create]
+    resources :bookings, only: [:new, :create]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
