@@ -7,9 +7,13 @@
   <div class="row">
     <% @offices.each do |office| %>
       <div class="col-xs-4">
-        <div class="office-card" style="background-image: url('a/assets/images/office_placeholder.jpg'), linear-gradient(-225deg, rgba(0,0,0,0.6) 50%, rgba(0,36,61,0.6) 80%)">
-          <%= link_to office.name, office_path(office) %>
-        </div>
+        <%= link_to office_path(office), class:"office-card-link" do %>
+          <div class="office-card" style="background-image: linear-gradient(-200deg, rgba(0,0,0,0.1) 10%, rgba(0,0,0,0.6) 70%), url(<%= asset_path('office_placeholder') %>);">
+            <h3><%= office.name %></h3>
+            <p><%= office.price %></p>
+            <p><%= office.workspace_type %>, <%= office.number_of_seats %> seat</p>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
