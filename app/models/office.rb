@@ -3,5 +3,5 @@ class Office < ApplicationRecord
   has_many :bookings
   has_many :reviews, through: :bookings
   has_many :users, through: :bookings
-  validates :user, :name, :price, :type, :number_of_seats, presence: true
+  validates :user, :name, :price, :workspace_type, :number_of_seats, presence: true
 end
