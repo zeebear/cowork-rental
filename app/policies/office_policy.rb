@@ -8,4 +8,12 @@ class OfficePolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def show?
+    true
+  end
+
+  def update?
+    record.user == user
+  end
 end

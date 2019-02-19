@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   root to: 'offices#index'
   namespace :owner do
-    resources :offices, except: [:new, :create]
-    resources :bookings, except: [:new, :create, :delete]
+    resources :offices, only: :index
+    resources :bookings, except: [:index, :create, :delete]
   end
+
+  resources :offices
+
   devise_for :users
   resources :offices, only: [:new, :create, :index, :show] do
     resources :booking, only: [:new, :create]

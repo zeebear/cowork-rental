@@ -1,5 +1,6 @@
 class OfficesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
+  before_action :set_office, only: [:show, :edit]
   def new
     @office = Office.new
     authorize @office
@@ -9,7 +10,9 @@ class OfficesController < ApplicationController
     @office = Office.new(office_params)
     authorize @office
     @office.user = current_user
-    @office.save
+    return redirect_to office_path(@office) if @office.save
+
+    render :new
   end
 
   def index
@@ -19,7 +22,25 @@ class OfficesController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    authorize @office
+    @office.update(office_params)
+    return redirect_to office_path(@office) if @office.save
+
+    render :edit
+  end
+
+  private
+
   def office_params
     params.require(:office).permit(:name, :price, :workspace_type, :number_of_seats, :coffee, :wifi, :lockers, :kitchen, :location, :coordinates)
+  end
+
+  def set_office
+    @office = Office.find(params[:id])
+    authorize @office
   end
 end
