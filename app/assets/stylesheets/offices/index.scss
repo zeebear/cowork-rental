@@ -8,10 +8,35 @@
   box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
   height: 200px;
   margin: 10px 0;
-  background-position: center;
-  background-size: auto;
-  background-repeat: none;
-  color: white;
+  position: relative;
+  // background-repeat: no-repeat;
+  .card-img {
+    color: white;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 70%;
+    .title {
+      margin: 0;
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+    }
+  }
+  .card-description {
+    padding: 10px;
+    display:flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    color: black;
+    p {
+      margin: 0;
+    }
+  }
   &:hover {
     box-shadow: 2px 2px 8px rgba(0,0,0,1);
   }
