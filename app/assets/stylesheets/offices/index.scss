@@ -42,7 +42,9 @@
     }
   }
   &:hover {
-    box-shadow: 2px 2px 8px rgba(0,0,0,1);
+    height: 110%;
+    width: 110%;
+    // box-shadow: 2px 2px 8px rgba(0,0,0,1);
   }
 }
 
