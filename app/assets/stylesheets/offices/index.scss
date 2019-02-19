@@ -42,8 +42,8 @@
     }
   }
   &:hover {
-    height: 110%;
-    width: 110%;
+    transform: scale(1.05);
+    transition: all .08s ease-in-out;
     // box-shadow: 2px 2px 8px rgba(0,0,0,1);
   }
 }
