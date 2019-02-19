@@ -1,5 +1,9 @@
 .office-container {
+  h1 {
+    margin:0;
+  }
   margin: 20px;
+  width: 70%;
 }
 
 .office-card {
@@ -44,5 +48,18 @@
 
 .office-card-link:hover {
   text-decoration: none;
+}
+
+.map-container{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 30%;
+  background-color: #DBF9E7;
+  height: 100vh;
+}
+
+.container-container {
+  display: flex;
 }
 
