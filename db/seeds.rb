@@ -9,10 +9,15 @@ Office.destroy_all
 User.destroy_all
 
 owner = User.new(email: 'mati@gmail.com', password: 123456)
-owner.save
+owner.save!
 
 worker = User.new(email: 'worker@gmail.com', password: 123456)
-worker.save
+worker.save!
 
 office = Office.new(user: owner, name: 'La Maquinita Co', price: 150, number_of_seats: 1, workspace_type: 'desk')
-office.save
+office.save!
+
+today = Date.today
+
+booking = Booking.new(office: office, user: worker, start_date: today, end_date: today)
+booking.save!

@@ -56,15 +56,11 @@
   text-decoration: none;
 }
 
-.map-container{
-  display: flex;
-  justify-content: center;
-  text-align: center;
+#map{
   width: 30%;
-  background-color: #DBF9E7;
   height: 100vh;
 }
 
-.container-container {
+.containers-container {
   display: flex;
 }
