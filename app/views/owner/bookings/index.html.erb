@@ -1,6 +1,6 @@
 <h1>Your rentals</h1>
 <ul>
   <% @bookings.each do |booking| %>
-    <li><%= booking.office.name %>. <%= booking.user.email %>. From: <%= booking.start_date %>, to: <%= booking.end_date %> <%= link_to 'edit', edit_owner_booking_path(booking) %></li>
+    <li><%= booking.office.name %>. <%= booking.user.email %>. From: <%= booking.start_date %>, to: <%= booking.end_date %> <%= booking.status %> <%= link_to 'edit', edit_owner_booking_path(booking) %></li>
   <% end %>
 </ul>
