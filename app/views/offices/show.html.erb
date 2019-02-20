@@ -22,4 +22,11 @@
   <% if @office.kitchen %>
     <li>Kitchen <i class="fas fa-check"></i></li>
   <% end %>
+  <% if @office.rating %>
+    <li> Average user rating:   <%=  @office.rating.round(2)%></li>
+    <li>Reviews:</li>
+     <% @office.reviews.each do |review| %>
+          <br> <%= review.rating %> <%= review.content %> </br>
+        <% end %>
+    <% end %>
 </ul>

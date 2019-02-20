@@ -14,10 +14,21 @@ owner.save!
 worker = User.new(email: 'worker@gmail.com', password: 123456)
 worker.save!
 
-office = Office.new(user: owner, name: 'La Maquinita Co', price: 150, number_of_seats: 1, workspace_type: 'desk')
+office = Office.new(user: owner, name: 'La Maquinita Co', price: 150, number_of_seats: 1, workspace_type: 'desk', address: '16 Bishopstown Road, Cork')
 office.save!
 
 today = Date.today
+yesterday= Date.yesterday
 
-booking = Booking.new(office: office, user: worker, start_date: today, end_date: today)
-booking.save!
+booking1 = Booking.new(office: office, user: worker, start_date: yesterday, end_date: yesterday)
+booking1.save!
+
+booking2 = Booking.new(office: office, user: worker, start_date: today, end_date: today)
+booking2.save!
+
+review1 = Review.new(rating: 5, content: "Amazing!!", booking: booking1)
+review1.save!
+
+review2 = Review.new(rating: 1, content: "Hated it this time!!", booking: booking2)
+review2.save!
+
