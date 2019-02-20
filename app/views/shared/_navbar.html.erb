@@ -1,43 +1,42 @@
+<div class="navbar-blank-space">
+  <div class="navbar-cowork">
+    <!-- Logo -->
+    <h4> Cowork Rental </h4>
+    <div class="search-container">
+      <form action="/action_page.php">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
 
+    <!-- Right Navigation -->
+    <div class="navbar-cowork-right hidden-xs hidden-sm">
 
-<div class="navbar-cowork">
-  <!-- Logo -->
-  <h4> Cowork Rental </h4>
-  <div class="search-container">
-    <form action="/action_page.php">
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-  </div>
+      <a href="" class="navbarcowork-item navbar-cowork-link">Host</a>
+      <a href="" class="navbar-cowork-item navbar-cowork-link">Messages</a>
 
-  <!-- Right Navigation -->
-  <div class="navbar-cowork-right hidden-xs hidden-sm">
+      <!-- Profile picture with dropdown list -->
+      <div class="navbar-cowork-item">
+        <div class="dropdown">
+          <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-cowork-menu" data-toggle="dropdown">
+          <ul class="dropdown-menu dropdown-menu-right navbar-cowork-dropdown-menu">
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Log Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-    <a href="" class="navbarcowork-item navbar-cowork-link">Host</a>
-    <a href="" class="navbar-cowork-item navbar-cowork-link">Messages</a>
-
-    <!-- Profile picture with dropdown list -->
-    <div class="navbar-cowork-item">
+    <!-- Dropdown appearing on mobile only -->
+    <div class="navbar-cowork-item hidden-md hidden-lg">
       <div class="dropdown">
-        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-cowork-menu" data-toggle="dropdown">
+        <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
         <ul class="dropdown-menu dropdown-menu-right navbar-cowork-dropdown-menu">
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Log Out</a></li>
+          <li><a href="#">Host</a></li>
+          <li><a href="#">Messagese</a></li>
         </ul>
       </div>
     </div>
   </div>
-
-  <!-- Dropdown appearing on mobile only -->
-  <div class="navbar-cowork-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-cowork-dropdown-menu">
-        <li><a href="#">Host</a></li>
-        <li><a href="#">Messagese</a></li>
-      </ul>
-    </div>
-  </div>
 </div>
-
