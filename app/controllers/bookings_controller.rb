@@ -21,14 +21,13 @@ class BookingsController < ApplicationController
   end
 
   def edit
-    authorize @booking
   end
 
   def update
     @booking.update(booking_params)
-    authorize @booking
 
-    return redirect_to bookings_path if @booking.save
+    return redirect_to bookings_path if @booking.save && current_user != @booking.user
+    return redirect_to owner_bookings_path if @booking.save
 
     render :edit
   end
@@ -41,6 +40,7 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def set_office
