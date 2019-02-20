@@ -24,6 +24,8 @@ const initMapbox = () => {
         .addTo(map);
     });
     fitMapToMarkers(map, markers);
+    const nav = new mapboxgl.NavigationControl();
+    map.addControl(nav, 'top-right');
   }
 };
 
