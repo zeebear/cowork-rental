@@ -58,6 +58,8 @@
 }
 
 #map {
+  height: calc(100vh - 70px);
+  min-width: 300px;
 }
 
 .containers-container {
