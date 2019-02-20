@@ -1,17 +1,38 @@
 /* Main navbar */
+$navbar_height: 70px;
+
+.nav-buttons {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+  a {
+    color: rgba(0,0,0,0.8);
+    font-size: 14px;
+
+  }
+}
+
+.navbar-blank-space {
+  height: $navbar_height;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
 .navbar-cowork {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: rgba(255,255,255,0.9);
+  background: white;
   transition: all 0.3s ease;
-  height: 70px;
+  height: $navbar_height;
   padding: 0px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  // position: sticky;
-  // top: 0;
-  // left: 0;
-  // right: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
 }
 
 /* Logo */
@@ -89,15 +110,30 @@
 }
 
 .navbar-cowork .search-container button {
+
+  padding: 0 20px;
   float: initial;
   padding: 6px 10px;
   margin-top: 8px;
-  margin-right: 100px;
   background: rgba(200,200,200,0.8);
   font-size: 12px;
   border: thin;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.search-container{
+  flex-grow: 1;
+  padding: 0 40px;
+}
+
+.search-container form {
+  display: flex;
+  justify-content: center;
+  input {
+    box-shadow: 0px 0px 3px rgba(0,0,0,0.05);
+    flex-grow: 1;
+  }
 }
 
 .navbar-cowork .search-container button:hover {
