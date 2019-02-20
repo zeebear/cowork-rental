@@ -8,10 +8,16 @@
   <%= f.input :number_of_seats, input_html: { min: 0, max: 500 } %>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
-  <%= f.input :wifi, as: :boolean %>
-  <%= f.input :coffee, as: :boolean %>
-  <%= f.input :lockers, as: :boolean %>
-  <%= f.input :kitchen, as: :boolean %>
+  <ul class="list-inline">
+    <li>  <%= f.input :wifi, as: :boolean %>
+</li>
+    <li>  <%= f.input :coffee, as: :boolean %>
+</li>
+    <li>  <%= f.input :lockers, as: :boolean %>
+</li>
+    <li>  <%= f.input :kitchen, as: :boolean %>
+</li>
+  </ul>
   <%= f.submit class:"btn btn-primary" %>
   <% end %>
   <%= link_to 'Cancel', offices_path %>
