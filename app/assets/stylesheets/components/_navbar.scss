@@ -1,69 +1,73 @@
 /* Main navbar */
-.navbar-wagon {
+.navbar-cowork {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: white;
+  background: rgba(255,255,255,0.9);
   transition: all 0.3s ease;
   height: 70px;
   padding: 0px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  // position: sticky;
+  // top: 0;
+  // left: 0;
+  // right: 0;
 }
 
 /* Logo */
-.navbar-wagon-brand img {
+.navbar-cowork-brand img {
   height: 50px;
 }
 
 /* User Avatar */
-.navbar-wagon .avatar {
+.navbar-cowork .avatar {
   height: 35px;
   width: 35px;
   border-radius: 50%;
 }
 
 /* Right section */
-.navbar-wagon-right {
+.navbar-cowork-right {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 /* Basic navbar item */
-.navbar-wagon-item {
+.navbar-cowork-item {
   cursor: pointer;
   padding: 0 20px;
 }
 
 /* Navbar link */
-.navbar-wagon-link {
+.navbar-cowork-link {
   color: #616668;
   font-size: 14px;
 }
-.navbar-wagon-link:hover {
+.navbar-cowork-link:hover {
   color: #da552f;
   text-decoration: none;
 }
 
 /* Dropdown menu */
-.navbar-wagon-dropdown-menu {
+.navbar-cowork-dropdown-menu {
   margin-top: 15px;
   box-shadow: 1px 1px 4px #E6E6E6;
   border-color: #E6E6E6;
 }
-.navbar-wagon-dropdown-menu li > a {
+.navbar-cowork-dropdown-menu li > a {
   transition: color 0.3s ease;
-  font-weight: lighter !important;
-  color: #999999 !important;
-  font-size: 15px !important;
-  line-height: 22px !important;
-  padding: 10px 20px;
+  font-weight: lighter ;
+  color: #999999;
+  font-size: 15px;
+  line-height: 22px;
+  padding: 10px 20p;
 }
-.navbar-wagon-dropdown-menu li > a:hover {
-  background: transparent !important;
-  color: black !important;
+.navbar-cowork-dropdown-menu li > a:hover {
+  background: transparent ;
+  color: black ;
 }
-.navbar-wagon-dropdown-menu:before {
+.navbar-cowork-dropdown-menu:before {
   content: ' ';
   height: 10px;
   width: 10px;
@@ -74,4 +78,28 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+.navbar-cowork input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 14px;
+  border: none;
+
+}
+
+.navbar-cowork .search-container button {
+  float: initial;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 100px;
+  background: rgba(200,200,200,0.8);
+  font-size: 12px;
+  border: thin;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.navbar-cowork .search-container button:hover {
+  background: rgba(236,236,236,0.8);
 }

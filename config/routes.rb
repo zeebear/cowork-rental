@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
   # GET  URL: '/'  -> [ OFFICE # INDEX] -> VIEWS/OFFICES/INDEX.HTML.ERB
   root to: 'offices#index'
+<<<<<<< HEAD
+=======
+  namespace :owner do
+    resources :offices, only: :index
+    resources :bookings, only: [:index, :edit, :update]
+  end
+
+  resources :offices
+  resources :bookings, only: [:edit, :update, :index, :delete]
+>>>>>>> master
 
   devise_for :users
   #----for offices----
@@ -12,7 +22,7 @@ Rails.application.routes.draw do
   # GET  URL: '/offices/office_id/bookings/new'  -> [ BOOKING # NEW] -> VIEWS/OFFICES/booking/new.HTML.ERB
   # POST URL: '/offices/office_id/bookings' -> [ BOOKING # CREATE ] -> renders to another page that u want..
   resources :offices, only: [:new, :create, :index, :show] do
-    resources :booking, only: [:new, :create]
+    resources :bookings, only: [:new, :create]
   end
 
   #--- for bookings ---

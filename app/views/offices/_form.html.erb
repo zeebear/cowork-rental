@@ -1,8 +1,15 @@
-<%= simple_form_for @office do |f| %>
+<div class="offices-new">
+  <h1>Create a new office</h1>
+  <%= simple_form_for @office do |f| %>
   <%= f.input :name %>
   <%= f.input :price %>
   <%= f.input :workspace_type %>
   <%= f.input :number_of_seats %>
-  <%= f.submit %>
-<% end %>
-<%= link_to 'Cancel', offices_path %>
+  <%= f.input :wifi, as: :boolean %>
+  <%= f.input :coffee, as: :boolean %>
+  <%= f.input :lockers, as: :boolean %>
+  <%= f.input :kitchen, as: :boolean %>
+  <%= f.submit class:"btn btn-primary" %>
+  <% end %>
+  <%= link_to 'Cancel', offices_path %>
+</div>

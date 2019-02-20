@@ -2,7 +2,7 @@ class Owner::OfficesController < ApplicationController
   before_action :set_office, only: %i[show edit]
 
   def index
-    @offices = policy_scope(Office).order(created_at: :desc).where(user: current_user)
+    @offices = policy_scope([:owner, Office]).order(created_at: :desc)
     render 'offices/index'
   end
 
