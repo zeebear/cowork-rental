@@ -11,6 +11,11 @@
             <h3 class="title"><%= booking.office.name %></h3>
             <%= link_to edit_booking_path(booking) do%>
             <i class="far fa-edit"></i>
+            <% if  booking.review%>
+            <%= link_to 'See your review', office_path(booking.office_id) %>
+            <% else %>
+            <%= link_to 'add a review', new_booking_review_path(booking) %>
+            <% end %>
             <% end %>
           </div>
           <div class="card-description">
@@ -23,4 +28,5 @@
   </div>
 </div>
 </div>
+
 

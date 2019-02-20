@@ -4,7 +4,10 @@ class ReviewPolicy < ApplicationPolicy
       scope.all
     end
   end
+  def new?
+    record.booking.user = user
+  end
   def create?
-    record.user == user
+    record.booking.user == user
   end
 end

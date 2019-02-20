@@ -5,8 +5,12 @@ Rails.application.routes.draw do
     resources :bookings, only: [:index, :edit, :update]
   end
 
-  resources :offices
-  resources :bookings, only: [:edit, :update, :index, :delete]
+  resources :offices do
+    resources :reviews, only: [:index]
+  end
+  resources :bookings, only: [:edit, :update, :index, :delete] do
+    resources :reviews, only: [:new, :create]
+  end
 
   devise_for :users
   resources :offices, only: [:new, :create, :index, :show] do
