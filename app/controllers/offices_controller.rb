@@ -20,7 +20,8 @@ class OfficesController < ApplicationController
     @markers = @offices.map do |office|
       {
         lng: office.longitude,
-        lat: office.latitude
+        lat: office.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { office: office })
       }
     end
   end
