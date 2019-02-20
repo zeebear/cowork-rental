@@ -1,9 +1,5 @@
 <div class="containers-container">
   <div class="office-container">
-  <h1 class="text-center"><%= link_to "Offices", offices_path %></h1>
-  <%= link_to 'My offices', owner_offices_path, class:"btn btn-info" %>
-  <%= link_to 'My rentals', owner_bookings_path, class:"btn btn-danger" %>
-  <%= link_to 'My bookings', bookings_path, class:"btn btn-primary" %>
   <%= link_to '+ Add new office', new_office_path %>
     <div class="row">
       <% @offices.each do |office| %>
