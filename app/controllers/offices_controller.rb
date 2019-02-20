@@ -43,7 +43,7 @@ class OfficesController < ApplicationController
   private
 
   def office_params
-    params.require(:office).permit(:name, :price, :workspace_type, :number_of_seats, :address, :photo, :coffee, :wifi, :lockers, :kitchen, :location, :coordinates)
+    params.require(:office).permit(:name, :price, :workspace_type, :number_of_seats, :address, :photo, :coffee, :wifi, :lockers, :kitchen)
   end
 
   def set_office
