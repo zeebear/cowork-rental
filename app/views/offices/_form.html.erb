@@ -6,10 +6,16 @@
   <%= f.input :price, input_html: { min: 0, max: 5000 } %>
   <%= f.input :workspace_type %>
   <%= f.input :number_of_seats, input_html: { min: 0, max: 500 } %>
-  <%= f.input :wifi, as: :boolean %>
-  <%= f.input :coffee, as: :boolean %>
-  <%= f.input :lockers, as: :boolean %>
-  <%= f.input :kitchen, as: :boolean %>
+  <table>
+    <tbody>
+      <tr>
+<th>  <%= f.input :wifi, as: :boolean %></th>
+<th>  <%= f.input :coffee, as: :boolean %></th>
+<th>  <%= f.input :lockers, as: :boolean %></th>
+<th>  <%= f.input :kitchen, as: :boolean %></th>
+</tr>
+  </tbody>
+  </table>
   <%= f.submit class:"btn btn-primary" %>
   <% end %>
   <%= link_to 'Cancel', offices_path %>
