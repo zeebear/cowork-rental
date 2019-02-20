@@ -17,6 +17,12 @@ class OfficesController < ApplicationController
 
   def index
     @offices = policy_scope(Office).order(created_at: :desc)
+    @markers = @offices.map do |office|
+      {
+        lng: office.longitude,
+        lat: office.latitude
+      }
+    end
   end
 
   def show
