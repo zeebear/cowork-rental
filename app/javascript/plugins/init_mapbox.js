@@ -6,10 +6,17 @@ const initMapbox = () => {
     const bounds = new mapboxgl.LngLatBounds();
     markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
     map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
-    // const sw = new mapboxgl.LngLat(-73.9876, 40.7661);
-    // const ne = new mapboxgl.LngLat(-73.9397, 40.8002);
-    // const bounds = new mapboxgl.LngLatBounds(sw, ne);
-    // map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
+  };
+  const flyToOffice = (lat, lng, map) => {
+    map.flyTo({
+      center: [lat, lng],
+      zoom: 13,
+      speed: 10,
+      curve: 1,
+      easing(t) {
+        return t;
+      }
+    });
   };
 
   if (mapElement) { // only build a map if there's a div#map to inject into
@@ -27,17 +34,32 @@ const initMapbox = () => {
         .setPopup(popup)
         .addTo(map);
     });
-    // fitMapToMarkers(map, markers);
-
+    fitMapToMarkers(map, markers);
     const nav = new mapboxgl.NavigationControl();
-    map.addControl(nav, 'top-right');
-
-    map.addControl(new mapboxgl.GeolocateControl({
-    fitBoundsOptions: {
-        maxZoom: 15
-    },
-}));
+    map.addControl(nav, 'top-left');
+    const geolocate = new mapboxgl.GeolocateControl({
+    positionOptions: {
+        enableHighAccuracy: true,
+      },
+      fitBoundsOptions: {
+        maxZoom: 13
+      },
+      trackUserLocation: true
+    });
+    map.addControl(geolocate, 'top-left');
+    map.on('load', function()
+    {
+      geolocate.trigger();
+    });
+    const cards = document.querySelectorAll('.office-card');
+    cards.forEach((card) => {
+      card.addEventListener('mouseover', (event) => {
+        flyToOffice(parseFloat(card.dataset.lng), parseFloat(card.dataset.lat), map);
+      });
+    });
   }
 };
+
+
 
 export { initMapbox };
