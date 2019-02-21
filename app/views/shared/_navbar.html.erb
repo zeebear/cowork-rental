@@ -25,7 +25,7 @@
       <% if current_user.owned_offices.empty? %>
         <%= link_to "Host", new_office_path, class:"navbarcowork-item navbar-cowork-link" %>
       <% else %>
-        <%= link_to "Offices (#{current_user.owned_offices.count})", owner_offices_path, class:"navbarcowork-item navbar-cowork-link" %>
+        <%= link_to "Offices (#{current_user.owned_offices.count})", owner_offices_path, class:"navbarcowork-item navbar-cowork-link", id: "office" %>
       <% end %>
       <%= link_to "Rent", root_path, class:"navbarcowork-item navbar-cowork-link" %>
     <% end %>
@@ -33,7 +33,7 @@
       <!-- Profile picture with dropdown list -->
       <div class="navbar-cowork-item">
         <div class="dropdown">
-          <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-cowork-menu" data-toggle="dropdown">
+          <i class="fas fa-user"class="avatar dropdown-toggle" id="navbar-cowork-menu" data-toggle="dropdown"></i>
           <ul class="dropdown-menu dropdown-menu-right navbar-cowork-dropdown-menu">
             <li><a href="#">Profile</a></li>
             <li><a href="#">Dashboard</a></li>
@@ -41,16 +41,6 @@
           </ul>
         </div>
       </div>
-      <div class="navbar-cowork-item">
-        <div class="dropdown">
-          <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
-          <ul class="dropdown-menu dropdown-menu-right navbar-cowork-dropdown-menu">
-            <li><%= link_to 'Owner - Offices', owner_offices_path %></li>
-            <li><%= link_to 'Owner - Bookings', owner_bookings_path %></li>
-            <li><%= link_to 'Renter - Bookings', bookings_path %></li>
-            <li><%= link_to 'Renter - ', bookings_path %></li>
-          </ul>
-        </div>
       </div>
     </div>
 
