@@ -136,7 +136,7 @@ ADDRESSES.each_with_index do |a, i|
    number_of_seats: rand(1..10),
    )
  office.user = User.find(rand(1..4))
- office.remote_photo_url = IMAGES.sample
+ office.remote_photo_url = IMAGES[i]
  office.save!
 end
 puts "Created 4 users. Office database seeded with 20 offices"
@@ -161,14 +161,25 @@ REVIEWS.each do |review|
   r.booking = Booking.find(rand(1..5))
   r.save!
 end
-100.times do
+
+REVIEWS.each do |review|
   r = Review.new(
     rating: rand(1..5),
-    content: Faker::Quotes::Shakespeare.hamlet_quote
+    content: review
     )
   r.booking = Booking.find(rand(1..5))
   r.save!
 end
+
+# 100.times do
+#   r = Review.new(
+#     rating: rand(1..5),
+#     content: Faker::Quotes::Shakespeare.hamlet_quote
+#     )
+#   r.booking = Booking.find(rand(1..5))
+#   r.save!
+# end
+
 puts "***"
 puts "Ready to rock'n'roll! Restart your server, refresh your browser!"
 puts "***"
