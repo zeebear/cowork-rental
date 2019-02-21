@@ -8,7 +8,7 @@
       <% @bookings.each do |booking| %>
       <div>
         <div class="office-card owner-bookings-cards border-radius">
-          <div class="card-img image-border-radius" style="background-image: linear-gradient(-200deg, rgba(0,0,0,0.1) 10%, rgba(0,0,0,0.6) 70%), url(<%= asset_path('office_placeholder') %>);">
+          <div class="card-img image-border-radius" style="background-image: linear-gradient(-200deg, rgba(0,0,0,0.1) 10%, rgba(0,0,0,0.6) 70%), url(<%= asset_path('office_placeholder.jpg') %>);">
             <h3 class="title"><%= booking.office.name %></h3>
             <%= link_to edit_booking_path(booking) do%>
             <i class="far fa-edit"></i>
