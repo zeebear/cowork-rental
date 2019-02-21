@@ -20,6 +20,8 @@ gem "pundit"
 gem "geocoder"
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
+gem "algoliasearch-rails"
+gem "pg_search"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
