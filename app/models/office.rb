@@ -1,10 +1,18 @@
 class Office < ApplicationRecord
   include AlgoliaSearch
+
   algoliasearch do
     attributes :name, :address, :workspace_type, :price
     searchableAttributes ['name', 'address', 'workspace_type', 'price']
     # customRanking ['desc(price)']
   end
+
+  include PgSearch
+  pg_search_scope :search_by_name_and_worspace_type,
+    against: [ :name, :workspace_type ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 
   belongs_to :user
   has_many :bookings

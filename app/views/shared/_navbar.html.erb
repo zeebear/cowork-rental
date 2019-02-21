@@ -4,7 +4,7 @@
 
     <h4><%= link_to 'Cowork Rental', offices_path %></h4>
     <div class="search-container">
-      <form id="search" action="#">
+      <form id="search" action="/offices" method="get">
         <input id="search-input" type="text" placeholder="Search.." name="search">
         <button type="submit"><i class="fa fa-search"></i></button>
       </form>
