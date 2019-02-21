@@ -31,6 +31,21 @@
 
 # review2 = Review.new(rating: 1, content: "Hated it this time!!", booking: booking2)
 # review2.save!
+REVIEWS = [
+'Comfortable space, but the wifi was slow',
+'I loved it! And the coffee was great. Thumbs up, I\'ll be back again!',
+'Reasonable facilities for the price',
+'The owner was a joy to deal with, and everything was as advertised',
+'Very noisy environment. The kitchen was a bit dirty.',
+'This desk is not comfortable for short people',
+'Great location, reasonable price. It was easy to arrange to get in to the space. The wifi is very fast!!!!',
+'Furniture a bit worn, but otherwise fine',
+'The space is great, but it was impossible to find parking in the neighbourhood',
+'Could be cleaner.',
+'Everything worked as expected',
+'Fast wifi, good coffee, comfortable space. I\'ll be back for sure!',
+]
+
 IMAGES = [
 Rails.root.join("db/offices/adult-agency-business-380769.jpg").open,
 Rails.root.join("db/offices/adult-beard-business-845451.jpg").open,
@@ -90,6 +105,25 @@ DESKS = [
     'Table for 6 in a shared office'
 ]
 
+START_DATES = [
+2018-12-11,
+2018-12-03,
+2018-12-11,
+2018-11-22,
+2018-12-25,
+2018-12-24,
+2018-12-16
+]
+
+END_DATES = [
+2018-01-11,
+2018-01-12,
+2018-01-13,
+2018-01-14,
+2018-01-15,
+2018-01-16
+]
+
 puts "Creating 4 users"
 User.create(email: 'claire@claire.com', password: 123456)
 User.create(email: 'alfonso@alfonso.com', password: 123456)
@@ -99,7 +133,7 @@ User.create(email: 'mati@mati.com', password: 123456)
 
 puts "Seeding the office database"
 ADDRESSES.first(8).each_with_index do |a, i|
-  puts "Creating #{i + 1} / 8…"
+  puts "Creating #{i + 1} / 8 offices…"
  office = Office.new(
    name: DESKS.sample,
    address: a,
@@ -112,5 +146,16 @@ ADDRESSES.first(8).each_with_index do |a, i|
  # office.remote_photo_url = "httsp.."
  office.save!
 end
-puts "Created 4 users, Office database seeded with 20 offices"
+puts "Created 4 users. Office database seeded with 20 offices"
+
+puts "Seeding the bookings database"
+5.times do |variable|
+  b = Booking.new(
+    start_date: START_DATES.rand
+    end_date: END_DATES.rand
+    )
+  b.office = Office.find(rand(1..8))
+  b.user = User.find(rand(1..4))
+  b.save!
+end
 
