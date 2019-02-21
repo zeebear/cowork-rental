@@ -15,7 +15,7 @@
 
     <!-- for when the user is NOT logged in -->
       <% if user_signed_in? == false %>
-        <%= link_to "Host", new_office_path, class:"navbarcowork-item navbar-cowork-link", id: "host" %>
+        <%= link_to "Host", owner_offices_path, class:"navbarcowork-item navbar-cowork-link", id: "host" %>
         <%= link_to "Rent", root_path, class:"navbarcowork-item navbar-cowork-link" %>
     <% end %>
 
@@ -35,9 +35,14 @@
         <div class="dropdown">
           <i class="fas fa-user"class="avatar dropdown-toggle" id="navbar-cowork-menu" data-toggle="dropdown"></i>
           <ul class="dropdown-menu dropdown-menu-right navbar-cowork-dropdown-menu">
+          <% if user_signed_in? %>
             <li><a href="#">Profile</a></li>
             <li><a href="#">Dashboard</a></li>
             <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <li><%= link_to "Log in", new_user_session_path%></li>
+          <% end %>
           </ul>
         </div>
       </div>
