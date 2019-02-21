@@ -31,6 +31,17 @@
 
 # review2 = Review.new(rating: 1, content: "Hated it this time!!", booking: booking2)
 # review2.save!
+LIMERICKS = [
+'JavaScript was made for the masses,',
+'It lacked types, and modules, and classes.',
+'But it became giant, ran on server and client,',
+'\'Til it crashed both, despite 100 test passes.',
+'Then came the wind to our sails,',
+'In a language that every hipster hails.',
+'Its name was Ruby, it made an expert from a newbie,',
+'\'Til it got traffic and fell off the rails.'
+]
+
 REVIEWS = [
 'Comfortable space, but the wifi was slow',
 'I loved it! And the coffee was great. Thumbs up, I\'ll be back again!',
@@ -106,22 +117,22 @@ DESKS = [
 ]
 
 START_DATES = [
-2018-12-11,
-2018-12-03,
-2018-12-11,
-2018-11-22,
-2018-12-25,
-2018-12-24,
-2018-12-16
+'2018-12-11',
+'2018-12-03',
+'2018-12-11',
+'2018-11-22',
+'2018-12-25',
+'2018-12-24',
+'2018-12-16'
 ]
 
 END_DATES = [
-2018-01-11,
-2018-01-12,
-2018-01-13,
-2018-01-14,
-2018-01-15,
-2018-01-16
+'2018-01-11',
+'2018-01-12',
+'2018-01-13',
+'2018-01-14',
+'2018-01-15',
+'2018-01-16'
 ]
 
 puts "Creating 4 users"
@@ -134,6 +145,7 @@ User.create(email: 'mati@mati.com', password: 123456)
 puts "Seeding the office database"
 ADDRESSES.first(8).each_with_index do |a, i|
   puts "Creating #{i + 1} / 8 offices…"
+  puts LIMERICKS[i]
  office = Office.new(
    name: DESKS.sample,
    address: a,
@@ -151,8 +163,8 @@ puts "Created 4 users. Office database seeded with 20 offices"
 puts "Seeding the bookings database"
 5.times do
   b = Booking.new(
-    start_date: START_DATES.rand
-    end_date: END_DATES.rand
+    start_date: START_DATES.sample,
+    end_date: END_DATES.sample
     )
   b.office = Office.find(rand(1..8))
   b.user = User.find(rand(1..4))
@@ -160,9 +172,9 @@ puts "Seeding the bookings database"
 end
 
 puts "Seeding the reviews database"
-Reviews.each do |review|
+REVIEWS.each do |review|
   r = Review.new(
-    rating: rand(1..5)
+    rating: rand(1..5),
     content: review
     )
   r.booking = Booking.find(rand(1..5))
