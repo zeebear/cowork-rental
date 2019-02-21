@@ -32,14 +32,14 @@
 # review2 = Review.new(rating: 1, content: "Hated it this time!!", booking: booking2)
 # review2.save!
 LIMERICKS = [
-'JavaScript was made for the masses,',
-'It lacked types, and modules, and classes.',
-'But it became giant, ran on server and client,',
-'\'Til it crashed both, despite 100 test passes.',
-'Then came the wind to our sails,',
-'In a language that every hipster hails.',
-'Its name was Ruby, it made an expert from a newbie,',
-'\'Til it got traffic and fell off the rails.'
+'*** JavaScript was made for the masses,',
+'*** It lacked types, and modules, and classes.',
+'*** But it became giant, ran on server and client,',
+'*** \'Til it crashed both, despite 100 test passes.',
+'*** Then came the wind to our sails,',
+'*** In a language that every hipster hails.',
+'*** Its name was Ruby, it made an expert from a newbie,',
+'*** \'Til it got traffic and fell off the rails.'
 ]
 
 REVIEWS = [
@@ -55,6 +55,16 @@ REVIEWS = [
 'Could be cleaner.',
 'Everything worked as expected',
 'Fast wifi, good coffee, comfortable space. I\'ll be back for sure!',
+'There were dogs barking outside the whole time. I couldn\'t concentrate',
+'Where was the coffee? It was listed in the facilities, but there wasn\'t any',
+'This site is illegal and should be shut down',
+'Can I rent this space for a longer time?',
+'The owner never responds to any of my reviews',
+'This was the best space I could find, but it wasn\'t great',
+'Can I get a discount if I book this space for more than half a year?'
+'hello',
+'h',
+'Had to bring my own utensils, there were none in the kitchen'
 ]
 
 IMAGES = [
@@ -180,4 +190,6 @@ REVIEWS.each do |review|
   r.booking = Booking.find(rand(1..5))
   r.save!
 end
+puts "***"
 puts "Ready to rock'n'roll! Restart your server, refresh your browser!"
+puts "***"
