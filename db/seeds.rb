@@ -52,22 +52,6 @@ Rails.root.join("db/offices/black-and-white-black-and-white-chair-81363.jpg").op
 Rails.root.join("db/offices/black-and-white-board-boardroom-260689.jpg").open,
 Rails.root.join("db/offices/bookcase-chair-computer-263209.jpg").open,
 Rails.root.join("db/offices/brainstorming-collaborate-collaboration-1204649.jpg").open,
-Rails.root.join("db/offices/business-camera-computer-699459.jpg").open,
-Rails.root.join("db/offices/business-chair-chairs-273671.jpg").open,
-Rails.root.join("db/offices/business-chairs-company-7070.jpg").open,
-Rails.root.join("db/offices/business-chairs-contemporary-210620.jpg").open,
-Rails.root.join("db/offices/business-chairs-contemporary-416320.jpg").open,
-Rails.root.join("db/offices/carl-heyerdahl-181868-unsplash.jpg").open,
-Rails.root.join("db/offices/chair-daylight-desk-1181251.jpg").open,
-Rails.root.join("db/offices/chair-desk-furniture-159839.jpg").open,
-Rails.root.join("db/offices/chairs-computers-contemporary-1170412.jpg").open,
-Rails.root.join("db/offices/dane-deaner-541785-unsplash.jpg").open,
-Rails.root.join("db/offices/desk-furniture-interior-design-37347.jpg").open,
-Rails.root.join("db/offices/drew-beamer-679505-unsplash.jpg").open,
-Rails.root.join("db/offices/gades-photography-761358-unsplash.jpg").open,
-Rails.root.join("db/offices/mark-west-411332-unsplash.jpg").open,
-Rails.root.join("db/offices/nastuh-abootalebi-284883-unsplash.jpg").open,
-Rails.root.join("db/offices/venveo-609390-unsplash.jpg").open,
 ]
 
 ADDRESSES = [
