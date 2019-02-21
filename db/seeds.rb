@@ -28,33 +28,38 @@ REVIEWS = [
 'Can I rent this space for a longer time?',
 'The owner never responds to any of my reviews',
 'This was the best space I could find, but it wasn\'t great',
-'Can I get a discount if I book this space for more than half a year?'
+'Can I get a discount if I book this space for more than half a year?',
 'hello',
 'h',
 'Had to bring my own utensils, there were none in the kitchen'
 ]
 
 IMAGES = [
-Rails.root.join("db/offices/adult-agency-business-380769.jpg").open,
-Rails.root.join("db/offices/adult-beard-business-845451.jpg").open,
-Rails.root.join("db/offices/adult-bookcase-business-218413.jpg").open,
-Rails.root.join("db/offices/adult-business-daylight-374085.jpg").open,
-Rails.root.join("db/offices/adult-businessman-computer-374598.jpg").open,
-Rails.root.join("db/offices/ai-artificial-intelligence-automation-1329068.jpg").open,
-Rails.root.join("db/offices/alex-kotliarskyi-361081-unsplash.jpg").open,
-Rails.root.join("db/offices/american-coffee-colleagues-1389122.jpg").open,
-Rails.root.join("db/offices/andrew-neel-218073-unsplash.jpg").open,
-Rails.root.join("db/offices/annie-spratt-294450-unsplash.jpg").open,
-Rails.root.join("db/offices/annie-spratt-439326-unsplash.jpg").open,
-Rails.root.join("db/offices/apartment-architecture-business-221537.jpg").open,
-Rails.root.join("db/offices/apartment-architecture-business-265129.jpg").open,
-Rails.root.join("db/offices/architectural-design-architecture-ceiling-380768.jpg").open,
-Rails.root.join("db/offices/architecture-book-shelves-bookcase-245240.jpg").open,
-Rails.root.join("db/offices/art-business-cactus-265101.jpg").open,
-Rails.root.join("db/offices/black-and-white-black-and-white-chair-81363.jpg").open,
-Rails.root.join("db/offices/black-and-white-board-boardroom-260689.jpg").open,
-Rails.root.join("db/offices/bookcase-chair-computer-263209.jpg").open,
-Rails.root.join("db/offices/brainstorming-collaborate-collaboration-1204649.jpg").open,
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550777535/t48xfhncpae2v5tariy1.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550777526/ojh5jetpbl1hpvsbdtqp.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550777510/wc3yq7pmt5cnqi5trcoo.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550777503/jfmermbfalal1oxd5tvj.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550777493/hvmupd8bc3b5tlquob6n.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550777483/h0jk8kvoiagntg2ybzya.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550777476/csbx7ppocnmkemf6upzj.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550777468/pjwxmwgkh6rnvc0jlc1c.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550777381/y5zjuiugmk1go8zegkoy.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550777341/z3etcgaoctnawzqdkktz.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550777217/b44s9w9lydawjfxosblh.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550776633/drz4v9qlezmyonldfldo.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550774196/uaypees8fujchsyoff5w.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550774187/lbdx8el4tk23i1biebpz.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550774182/gyljlfqkqqmzlsqyroxa.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550774172/zx6j4qgtdonqoymu4srv.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550774163/h38uoyzpqi5vfnntzq01.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550774145/tvawzjpwvx5wqpwssiwq.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550774138/b55zo1izhfoqf7ot3xtz.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550774128/i0z52sms9nfosblyevfw.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550774128/i0z52sms9nfosblyevfw.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550774123/ze0ip6t90adiyx0rsvsu.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550774109/jswftqzg8vsf7jglisaz.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550774094/fqjuisv54inp2oaizajx.jpg',
+'https://res.cloudinary.com/diyosnlxf/image/upload/v1550774084/xsdifvizta5z4os0nwtp.jpg',
 ]
 
 ADDRESSES = [
@@ -120,8 +125,8 @@ User.create(email: 'mati@mati.com', password: 123456)
 
 
 puts "Seeding the office database"
-ADDRESSES.first(8).each_with_index do |a, i|
-  puts "Creating #{i + 1} / 8 offices…"
+ADDRESSES.each_with_index do |a, i|
+  puts "Creating #{i + 1} / 20 offices…"
   puts LIMERICKS[i]
  office = Office.new(
    name: DESKS.sample,
@@ -129,21 +134,20 @@ ADDRESSES.first(8).each_with_index do |a, i|
    price: rand(50..1000),
    workspace_type: Faker::House.furniture,
    number_of_seats: rand(1..10),
-   photo:  IMAGES[i]
    )
  office.user = User.find(rand(1..4))
- # office.remote_photo_url = "httsp.."
+ office.remote_photo_url = IMAGES.sample
  office.save!
 end
 puts "Created 4 users. Office database seeded with 20 offices"
 
 puts "Seeding the bookings database"
-5.times do
+20.times do
   b = Booking.new(
     start_date: START_DATES.sample,
     end_date: END_DATES.sample
     )
-  b.office = Office.find(rand(1..8))
+  b.office = Office.find(rand(1..20))
   b.user = User.find(rand(1..4))
   b.save!
 end
@@ -153,6 +157,14 @@ REVIEWS.each do |review|
   r = Review.new(
     rating: rand(1..5),
     content: review
+    )
+  r.booking = Booking.find(rand(1..5))
+  r.save!
+end
+100.times do
+  r = Review.new(
+    rating: rand(1..5),
+    content: Faker::Quotes::Shakespeare.hamlet_quote
     )
   r.booking = Booking.find(rand(1..5))
   r.save!
