@@ -1,4 +1,11 @@
 class Office < ApplicationRecord
+  include AlgoliaSearch
+  algoliasearch do
+    attributes :name, :address, :workspace_type, :price
+    searchableAttributes ['name', 'address', 'workspace_type', 'price']
+    # customRanking ['desc(price)']
+  end
+
   belongs_to :user
   has_many :bookings
   has_many :reviews, through: :bookings
@@ -8,7 +15,7 @@ class Office < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   mount_uploader :photo, PhotoUploader
-  
+
   #check if the reviews correspond to the office
   def reviews
     reviews = []
