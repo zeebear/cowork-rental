@@ -31,6 +31,45 @@
 
 # review2 = Review.new(rating: 1, content: "Hated it this time!!", booking: booking2)
 # review2.save!
+IMAGES = [
+Rails.root.join("db/offices/adult-agency-business-380769.jpg").open,
+Rails.root.join("db/offices/adult-beard-business-845451.jpg").open,
+Rails.root.join("db/offices/adult-bookcase-business-218413.jpg").open,
+Rails.root.join("db/offices/adult-business-daylight-374085.jpg").open,
+Rails.root.join("db/offices/adult-businessman-computer-374598.jpg").open,
+Rails.root.join("db/offices/ai-artificial-intelligence-automation-1329068.jpg").open,
+Rails.root.join("db/offices/alex-kotliarskyi-361081-unsplash.jpg").open,
+Rails.root.join("db/offices/american-coffee-colleagues-1389122.jpg").open,
+Rails.root.join("db/offices/andrew-neel-218073-unsplash.jpg").open,
+Rails.root.join("db/offices/annie-spratt-294450-unsplash.jpg").open,
+Rails.root.join("db/offices/annie-spratt-439326-unsplash.jpg").open,
+Rails.root.join("db/offices/apartment-architecture-business-221537.jpg").open,
+Rails.root.join("db/offices/apartment-architecture-business-265129.jpg").open,
+Rails.root.join("db/offices/architectural-design-architecture-ceiling-380768.jpg").open,
+Rails.root.join("db/offices/architecture-book-shelves-bookcase-245240.jpg").open,
+Rails.root.join("db/offices/art-business-cactus-265101.jpg").open,
+Rails.root.join("db/offices/black-and-white-black-and-white-chair-81363.jpg").open,
+Rails.root.join("db/offices/black-and-white-board-boardroom-260689.jpg").open,
+Rails.root.join("db/offices/bookcase-chair-computer-263209.jpg").open,
+Rails.root.join("db/offices/brainstorming-collaborate-collaboration-1204649.jpg").open,
+Rails.root.join("db/offices/business-camera-computer-699459.jpg").open,
+Rails.root.join("db/offices/business-chair-chairs-273671.jpg").open,
+Rails.root.join("db/offices/business-chairs-company-7070.jpg").open,
+Rails.root.join("db/offices/business-chairs-contemporary-210620.jpg").open,
+Rails.root.join("db/offices/business-chairs-contemporary-416320.jpg").open,
+Rails.root.join("db/offices/carl-heyerdahl-181868-unsplash.jpg").open,
+Rails.root.join("db/offices/chair-daylight-desk-1181251.jpg").open,
+Rails.root.join("db/offices/chair-desk-furniture-159839.jpg").open,
+Rails.root.join("db/offices/chairs-computers-contemporary-1170412.jpg").open,
+Rails.root.join("db/offices/dane-deaner-541785-unsplash.jpg").open,
+Rails.root.join("db/offices/desk-furniture-interior-design-37347.jpg").open,
+Rails.root.join("db/offices/drew-beamer-679505-unsplash.jpg").open,
+Rails.root.join("db/offices/gades-photography-761358-unsplash.jpg").open,
+Rails.root.join("db/offices/mark-west-411332-unsplash.jpg").open,
+Rails.root.join("db/offices/nastuh-abootalebi-284883-unsplash.jpg").open,
+Rails.root.join("db/offices/venveo-609390-unsplash.jpg").open,
+]
+
 ADDRESSES = [
   'Loyola 701, Buenos Aires, Argentina',
   'Armenia 1242, Buenos Aires, Argentina',
@@ -61,7 +100,10 @@ DESKS = [
     'Private corner office with space for 10',
     'Desk for two with 4 monitors',
     'Huge desk in a shared office',
-    'Desk in a private office'
+    'Desk in a private office',
+    'Desk in a shared space',
+    'Table in a shared space',
+    'Table for 6 in a shared office'
 ]
 
 puts "Creating 4 users"
@@ -72,14 +114,15 @@ User.create(email: 'mati@mati.com', password: 123456)
 
 
 puts "Seeding the office database"
-ADDRESSES.each do |a|
-  puts a
+ADDRESSES.first(8).each_with_index do |a, i|
+  puts "Creating #{i + 1} / 8…"
  office = Office.new(
    name: DESKS.sample,
    address: a,
    price: rand(50..1000),
    workspace_type: Faker::House.furniture,
-   number_of_seats: rand(1..10)
+   number_of_seats: rand(1..10),
+   photo:  IMAGES[i]
    )
  office.user = User.find(rand(1..4))
  # office.remote_photo_url = "httsp.."
