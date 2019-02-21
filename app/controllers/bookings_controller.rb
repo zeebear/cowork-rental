@@ -7,7 +7,9 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new
+    @booking.start_date = booking_params["start_date"].split(" to ").first
+    @booking.end_date = booking_params["start_date"].split(" to ").last
     authorize @booking
     @booking.office = @office
     @booking.user = current_user
