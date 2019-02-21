@@ -8,11 +8,29 @@
 
 }
 
-.offices-new-background {
+.new-background {
   width: 100vw;
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+
+  & h1 {
+    color: rgb(240,240,240);
+    font-weight: bold;
+    margin-top: 150px;
+  }
+  & h4 {
+    color: white;
+    font-size: 25px;
+    font-weight: lighter;
+  }
+
+}
+
+.h1-black {
+  color: rgb(5,5,5);
+  text-align: center;
+  margin-top: 0px;
 }

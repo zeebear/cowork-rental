@@ -1,6 +1,12 @@
-<h1>New booking</h1>
-<%= render 'form' %>
-<%= link_to 'Cancel', office_path(@office) %>
-
-<span style='display: none;' id='day-price'><%= @office.price %></span>
-<p>Price: $<span id='total-price'>0</span></p>
+<div class="container-fluid new-background" style="background-image: url(<%= asset_path('taipei')%>)">
+ <div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <h1>New booking</h1>
+    <%= render 'form' %>
+    <span style='display: none;' id='day-price'><%= @office.price %></span>
+    <h4>Price: $<span id='total-price'>0</span></h4>
+      <%= link_to 'Cancel', office_path(@office) %><
+  </ul>
+  </div>
+</div>
+</div>
