@@ -32,26 +32,36 @@
 # review2 = Review.new(rating: 1, content: "Hated it this time!!", booking: booking2)
 # review2.save!
 ADDRESSES = [
-  'Armenia 1242, C1414DKB CABA',
-  'Loyola 701, C1414AUO CABA',
-  'Gorriti 4738, C1414BJL CABA',
-  'Armenia 1641, 1414 CABA',
-  'Malabia 1510, C1414 CABA',
-  'Thames 1535, C1414 CABA',
-  'Guatemala 4516, C1425BUJ CABA',
-  'Charcas 3702, C1425BMZ CABA',
-  'Guatemala 4699, C1425 CABA',
-  'Av. Santa Fe 3856, C1425BHN CABA',
-  'Thames 1891, C1414 CABA',
-  'Honduras 4969, C1414BMO CABA',
-  'Av. Córdoba 5267, C1414 CABA',
-  'Serrano 1106, C1414DEX CABA',
-  'Gorriti 5657, C1414BKE CABA',
-  'Gorriti 5801, 1414 CABA',
-  'Costa Rica 5527, C1414BTC CABA',
-  'Humboldt 2000, C1414CTV CABA',
-  'Humboldt 1892, C1414CTT CABA',
-  'Humboldt 2192, C1425FUB CABA'
+  'Loyola 701, Buenos Aires, Argentina',
+  'Armenia 1242, Buenos Aires, Argentina',
+  'Gorriti 4738, Buenos Aires, Argentina',
+  'Armenia 1641, Buenos Aires, Argentina',
+  'Malabia 1510, Buenos Aires, Argentina',
+  'Thames 1535, Buenos Aires, Argentina',
+  'Guatemala 4516, Buenos Aires, Argentina',
+  'Charcas 3702, Buenos Aires, Argentina',
+  'Guatemala 4699, Buenos Aires, Argentina',
+  'Av. Santa Fe 3856, Buenos Aires, Argentina',
+  'Thames 1891, Buenos Aires, Argentina',
+  'Honduras 4969, Buenos Aires, Argentina',
+  'Av. Córdoba 5267, Buenos Aires, Argentina',
+  'Serrano 1106, Buenos Aires, Argentina',
+  'Gorriti 5657, Buenos Aires, Argentina',
+  'Gorriti 5801, Buenos Aires, Argentina',
+  'Costa Rica 5527, Buenos Aires, Argentina',
+  'Humboldt 2000, Buenos Aires, Argentina',
+  'Humboldt 1892, Buenos Aires, Argentina',
+  'Humboldt 2192, Buenos Aires, Argentina'
+]
+
+DESKS = [
+    'Desk by a window with a view',
+    'Round table with 4 chairs',
+    'Cozy corner table',
+    'Private corner office with space for 10',
+    'Desk for two with 4 monitors',
+    'Huge desk in a shared office',
+    'Desk in a private office'
 ]
 
 puts "Creating 4 users"
@@ -62,19 +72,18 @@ User.create(email: 'mati@mati.com', password: 123456)
 
 
 puts "Seeding the office database"
-20.times do
- address = 0
+ADDRESSES.each do |a|
+  puts a
  office = Office.new(
-   name: Faker::Commerce.product_name
-   address: ADDRESSES[address]
-   price: rand(50..1000)
-   workspace_type: Faker::House.unique.furniture
+   name: DESKS.sample,
+   address: a,
+   price: rand(50..1000),
+   workspace_type: Faker::House.furniture,
    number_of_seats: rand(1..10)
    )
- office.user =
- office.remote_photo_url = "httsp.."
+ office.user = User.find(rand(1..4))
+ # office.remote_photo_url = "httsp.."
  office.save!
- address += 1
 end
-puts "Office database seeded with 20 offices"
+puts "Created 4 users, Office database seeded with 20 offices"
 
