@@ -1,7 +1,7 @@
 <div class="containers-container">
   <div class="office-container">
     <% if user_signed_in? %>
-    <%= link_to 'My Bookings', bookings_path %>
+    <%= link_to "My Bookings (#{current_user.bookings.count})", bookings_path %>
     <%  end %>
     <div class="row">
       <% @offices.each do |office| %>
@@ -13,3 +13,6 @@
   </div>
   <div id="map" style="width: 30%;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
+
+
+
