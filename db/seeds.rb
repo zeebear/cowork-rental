@@ -149,7 +149,7 @@ end
 puts "Created 4 users. Office database seeded with 20 offices"
 
 puts "Seeding the bookings database"
-5.times do |variable|
+5.times do
   b = Booking.new(
     start_date: START_DATES.rand
     end_date: END_DATES.rand
@@ -159,3 +159,13 @@ puts "Seeding the bookings database"
   b.save!
 end
 
+puts "Seeding the reviews database"
+Reviews.each do |review|
+  r = Review.new(
+    rating: rand(1..5)
+    content: review
+    )
+  r.booking = Booking.find(rand(1..5))
+  r.save!
+end
+puts "Ready to rock'n'roll! Restart your server, refresh your browser!"
