@@ -12,6 +12,14 @@
 
 
     <!-- Right Navigation -->
+
+    <!-- for when the user is NOT logged in -->
+      <% if user_signed_in? == false %>
+        <%= link_to "Host", new_office_path, class:"navbarcowork-item navbar-cowork-link", id: "host" %>
+        <%= link_to "Rent", root_path, class:"navbarcowork-item navbar-cowork-link" %>
+    <% end %>
+
+    <!-- for when the user is logged in -->
     <% if user_signed_in? %>
     <div class="navbar-cowork-right">
       <% if current_user.owned_offices.empty? %>
@@ -19,7 +27,7 @@
       <% else %>
         <%= link_to "Offices (#{current_user.owned_offices.count})", owner_offices_path, class:"navbarcowork-item navbar-cowork-link" %>
       <% end %>
-      <%= link_to "Messages", root_path, class:"navbarcowork-item navbar-cowork-link" %>
+      <%= link_to "Rent", root_path, class:"navbarcowork-item navbar-cowork-link" %>
     <% end %>
 
       <!-- Profile picture with dropdown list -->
