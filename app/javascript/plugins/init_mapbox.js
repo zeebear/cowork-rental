@@ -11,7 +11,7 @@ const initMapbox = () => {
     map.flyTo({
       center: [lat, lng],
       zoom: 13,
-      speed: 6,
+      speed: 2,
       curve: 1,
       easing(t) {
         return t;
