@@ -3,7 +3,6 @@ class Owner::OfficesController < ApplicationController
 
   def index
     @offices = policy_scope([:owner, Office]).order(created_at: :desc)
-    render 'offices/index'
   end
 
   # def show

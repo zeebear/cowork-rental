@@ -1,21 +1,20 @@
 <div style="background-color: rgba(237, 30, 30,0.02 );">
-  <h1 style="
-    margin-top: 0px;
-">All Upcoming Bookings of Your Offices</h1>
+  <h1 style="margin-top: 0px; margin-left: 1em">My Offices</h1>
+    <div style="margin-top: 0px; margin-left:2.5em"=><%= link_to '+ Add an Office', new_office_path %></div>
 
    <div class="row">
     <div class="col-xs-6 col-xs-offset-3">
-      <% @bookings.each do |booking| %>
+      <% @offices.each do |office| %>
       <div>
         <div class="office-card owner-bookings-cards border-radius">
           <div class="card-img image-border-radius" style="background-image: linear-gradient(-200deg, rgba(0,0,0,0.1) 10%, rgba(0,0,0,0.6) 70%), url(<%= asset_path('office_placeholder') %>);">
-            <h3 class="title"><%= booking.office.name %></h3>
-            <%= link_to edit_booking_path(booking) do%>
+            <h3 class="title"><%= office.name %></h3>
+            <%= link_to edit_office_path(office) do%>
             <i class="far fa-edit"></i>
             <% end %>
           </div>
           <div class="card-description">
-            <p class="desc">Rented from <%= booking.start_date %> to <%= booking.end_date %></p>
+            <p class="desc"> enter info</p>
           </div>
         </div>
       </div>
@@ -24,4 +23,3 @@
   </div>
 </div>
 </div>
-
