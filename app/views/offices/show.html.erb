@@ -3,14 +3,14 @@
     <div class="linkText">
       <%= link_to '< Back', offices_path %>
     </div>
-
-    <h1><% @office.name.split(" ").each do |word| %>
-     <%= word.capitalize + " "%>
-     <% end %>
+    <h1>
+      <% @office.name.split(" ").each do |word| %>
+      <%= word.capitalize + " "%>
+      <% end %>
     </h1>
     <%= link_to 'Book', new_office_booking_path(@office), class:"btn btn-success" %>
     <% if policy(@office).edit? %>
-     <%= link_to 'Edit', edit_office_path(@office), class:"btn btn-warning" %>
+    <%= link_to 'Edit', edit_office_path(@office), class:"btn btn-warning" %>
     <% end %>
 
     <br>
@@ -34,15 +34,18 @@
       <% end %>
     </ul>
     <% if @office.rating.to_f.nan? %>
-     <h4>No reviews yet</h4>
+    <h4>No reviews yet</h4>
     <% else %>
-      <h4>Reviews (<%= @office.reviews.count %>)</h4>
-      <h5>Avg   <%=  @office.rating.round(1)%> <i class="fas fa-star"></i></h5>
-      <ul class="reviews">
-       <% @office.reviews.each do |review| %>
-       <li> <%= review.rating %> Stars:  "<%= review.content %>"</li>
-       <% end %>
-      </ul>
+    <h4>Reviews (<%= @office.reviews.count %>)</h4>
+    <h5>Avg   <%=  @office.rating.round(1)%> <i class="fas fa-star"></i></h5>
+    <% if @bookings.first %>
+    <%= render 'reviews/form', booking: @bookings.first, review: Review.new %>
     <% end %>
-</div>
+    <ul class="reviews">
+     <% @office.reviews.each do |review| %>
+     <li> <%= review.rating %> Stars:  "<%= review.content %>"</li>
+     <% end %>
+   </ul>
+   <% end %>
+ </div>
 </div>

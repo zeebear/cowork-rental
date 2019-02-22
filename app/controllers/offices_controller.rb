@@ -32,6 +32,14 @@ class OfficesController < ApplicationController
   end
 
   def show
+    @bookings = []
+    Booking.where(user: current_user).where(office: @office).each do |b|
+      @bookings << b if b.review.nil?
+    end
+    # @bookings = Booking.where(user: current_user).where(office: @office).where(:review.nil?)
+
+    # raise
+    authorize @booking unless @booking.nil?
   end
 
   def edit
