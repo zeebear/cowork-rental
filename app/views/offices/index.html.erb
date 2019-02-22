@@ -5,7 +5,7 @@
     <%  end %>
     <div class="row">
       <% @offices.each do |office| %>
-        <div class="col-xs-4">
+        <div class="col-xs-6 col-md-6">
           <%= render "offices/card", office: office %>
         </div>
       <% end %>
@@ -13,6 +13,9 @@
   </div>
   <div id="map" style="width: 30%;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
+
+
+
 
 
 
