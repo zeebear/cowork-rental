@@ -39,6 +39,10 @@
     // box-shadow: 2px 2px 8px rgba(0,0,0,1);
   }
 }
+  .owner-bookings-cards:hover {
+    transform: none;
+    transition:none;
+  }
 
 .office-card-link:hover {
   text-decoration: none;

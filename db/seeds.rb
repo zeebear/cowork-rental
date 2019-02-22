@@ -104,6 +104,7 @@ DESKS = [
 WORKSPACES = [
   'Shared space',
   'Private space',
+  'Meeting room',
 ]
 
 START_DATES = [
@@ -117,12 +118,12 @@ START_DATES = [
 ]
 
 END_DATES = [
-  '2018-01-11',
-  '2018-01-12',
-  '2018-01-13',
-  '2018-01-14',
-  '2018-01-15',
-  '2018-01-16'
+  '2019-01-11',
+  '2019-01-12',
+  '2019-01-13',
+  '2019-01-14',
+  '2019-01-15',
+  '2019-01-16'
 ]
 
 puts "Creating 4 users"
@@ -168,13 +169,13 @@ def seed_reviews
       rating: rand(1..5),
       content: review
       )
-    r.booking = Booking.find(rand(1..20))
+    r.booking = Booking.find(rand(1..200))
     r.save!
   end
 end
 
 
-400.times do
+800.times do
   seed_reviews
 end
 
