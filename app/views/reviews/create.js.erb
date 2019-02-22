@@ -6,6 +6,7 @@ const refreshForm = (innerHTML) => {
 const addReview = (reviewHTML) => {
   const reviews = document.getElementById('reviews');
   reviews.insertAdjacentHTML('afterbegin', reviewHTML);
+
 }
 
 addReview('<li> <%= @review.rating %> Stars:  "<%= @review.content %>"</li>');
