@@ -37,15 +37,18 @@
     <h4>No reviews yet</h4>
     <% else %>
     <h4>Reviews (<%= @office.reviews.count %>)</h4>
-    <h5>Avg   <%=  @office.rating.round(1)%> <i class="fas fa-star"></i></h5>
     <% if @bookings.first %>
-    <%= render 'reviews/form', booking: @bookings.first, review: Review.new %>
+    <p style="display: none;" id="booking-id"><%= @bookings.first.id %></p>
+    <%= render 'reviews/form', booking: @bookings %>
     <% end %>
-    <ul class="reviews">
+    <br>
+    <h5>Avg   <%=  @office.rating.round(1)%> <i class="fas fa-star"></i></h5>
+    <ul id="reviews">
      <% @office.reviews.each do |review| %>
      <li> <%= review.rating %> Stars:  "<%= review.content %>"</li>
      <% end %>
    </ul>
+
    <% end %>
  </div>
 </div>
