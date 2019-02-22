@@ -1,3 +1,16 @@
+.container {
+ height: 100vh;
+ background-repeat: no-repeat;
+ background-size: cover;
+ .innerContainer {
+  width: 550px;
+  background-color: white;
+  opacity: 0.6;
+  border-radius: 5px;
+  margin-top: 80px;
+}
+}
+
 .facilities {
   list-style-type: none;
 }
