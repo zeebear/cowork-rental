@@ -4,7 +4,7 @@
   <%= f.input :name %>
   <%= f.input :address %>
   <%= f.input :price, input_html: { min: 0, max: 5000 } %>
-  <%= f.input :workspace_type %>
+  <%= f.input :workspace_type, collection: ['Shared space', 'Private space', 'Meeting room'] %>
   <%= f.input :number_of_seats, input_html: { min: 0, max: 500 } %>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
