@@ -8,13 +8,30 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
-    @review.booking = @booking
+    @review = Review.new
+    @review.rating = params['rating']
+    @review.content = params['content']
+    @review.booking = Booking.find(params['booking_id'])
     authorize @review
+
+    bookings = []
+    office = @review.booking.office
+    Booking.where(user: current_user).where(office: office).each do |b|
+      bookings << b if b.review.nil?
+    end
+    @booking = bookings.first
+    authorize @booking unless @booking.nil?
+
     if @review.save
-      redirect_to office_path(@booking.office)
+      respond_to do |format|
+        format.html { redirect_to @booking }
+        format.js # <-- will render `app/views/reviews/create.js.erb`
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render 'offices/show' }
+        format.js # <-- idem
+      end
     end
   end
 
