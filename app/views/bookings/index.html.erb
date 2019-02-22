@@ -1,4 +1,4 @@
-<div style="background-color: rgba(10, 46, 252,0.02 );">
+<div class="container-fluid" style="background-color: rgba(10, 46, 252,0.02 );">
   <h1 style="
   margin-top: 0px;
   ">My Bookings</h1>
@@ -8,15 +8,13 @@
       <% @bookings.each do |booking| %>
       <div>
         <div class="office-card owner-bookings-cards border-radius">
-          <div class="card-img image-border-radius" style="background-image: linear-gradient(-200deg, rgba(0,0,0,0.1) 10%, rgba(0,0,0,0.6) 70%), url(<%= asset_path('office_placeholder.jpg') %>);">
-            <h3 class="title"><%= booking.office.name %></h3>
-            <%= link_to edit_booking_path(booking) do%>
-            <i class="far fa-edit"></i>
+          <div class="card-img image-border-radius" style="background-image: linear-gradient(-200deg, rgba(0,0,0,0.1) 10%, rgba(0,0,0,0.6) 70%), url(<%= cl_image_path(booking.office.photo) %>);">
+            <h3 class="title"><%= link_to booking.office.name, office_path(booking.office_id) %></h3>
+            <p><%= link_to "Edit your booking", edit_booking_path(booking), class: "btn btn-primary" %></p>
             <% if  booking.review%>
-            <%= link_to 'See your review', office_path(booking.office_id) %>
+            <%= link_to 'See your review', office_path(booking.office_id), class: "btn btn-primary" %>
             <% else %>
-            <%= link_to 'add a review', new_booking_review_path(booking) %>
-            <% end %>
+            <%= link_to 'Add a review', office_path(booking.office_id), class: "btn btn-primary" %>
             <% end %>
           </div>
           <div class="card-description">
