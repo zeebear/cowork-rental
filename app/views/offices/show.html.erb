@@ -1,38 +1,48 @@
-<%= link_to '< Back', offices_path %>
+<div class="container" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @office.photo, height: 0.3, crop: :fit %>')">
+  <div class="innerContainer">
+    <div class="linkText">
+      <%= link_to '< Back', offices_path %>
+    </div>
 
-<h1><% @office.name.split(" ").each do |word| %>
- <%= word.capitalize + " "%>
- <% end %></h1>
- <%= link_to 'Book', new_office_booking_path(@office), class:"btn btn-success" %>
- <% if policy(@office).edit? %>
-   <%= link_to 'Edit', edit_office_path(@office), class:"btn btn-warning" %>
- <% end %>
- <br>
- <p>Price: $<%= @office.price %> / day</p>
- <p>Workspace type: <%= @office.workspace_type %></p>
- <p>Number of seats: <%= @office.number_of_seats %></p>
- <h4>Facilities</h4>
- <ul class="facilities">
-  <% if @office.wifi %>
-  <li><i class="fas fa-wifi"></i> Wifi </i></li>
-  <% end %>
-  <% if @office.coffee %>
-  <li><i class="fas fa-coffee"></i> Coffee </i></li>
-  <% end %>
-  <% if @office.lockers %>
-  <li><i class="fas fa-suitcase"></i> Lockers </i></li>
-  <% end %>
-  <% if @office.kitchen %>
-  <li><i class="fas fa-utensils"></i> Kitchen </i></li>
-  <% end %>
-</ul>
-  <% if @office.rating %>
-  <h4>Reviews (<%= @office.reviews.count %>)</h4>
-  <h5>Avg   <%=  @office.rating.round(1)%> <i class="fas fa-star"></i></h5>
-     </li>
-    <ul class="facilities">
-     <% @office.reviews.each do |review| %>
-          <li> <%= review.rating %> Stars  "<%= review.content %>"</li>
-        <% end %>
+    <h1><% @office.name.split(" ").each do |word| %>
+     <%= word.capitalize + " "%>
+     <% end %>
+    </h1>
+    <%= link_to 'Book', new_office_booking_path(@office), class:"btn btn-success" %>
+    <% if policy(@office).edit? %>
+     <%= link_to 'Edit', edit_office_path(@office), class:"btn btn-warning" %>
     <% end %>
-</ul>
+
+    <br>
+
+    <p>Price: $<%= @office.price %> / day</p>
+    <p>Workspace type: <%= @office.workspace_type %></p>
+    <p>Number of seats: <%= @office.number_of_seats %></p>
+    <h4>Facilities</h4>
+    <ul class="facilities">
+      <% if @office.wifi %>
+      <li><i class="fas fa-wifi"></i> Wifi </i></li>
+      <% end %>
+      <% if @office.coffee %>
+      <li><i class="fas fa-coffee"></i> Coffee </i></li>
+      <% end %>
+      <% if @office.lockers %>
+      <li><i class="fas fa-suitcase"></i> Lockers </i></li>
+      <% end %>
+      <% if @office.kitchen %>
+      <li><i class="fas fa-utensils"></i> Kitchen </i></li>
+      <% end %>
+    </ul>
+    <% if @office.rating.to_f.nan? %>
+     <h4>No reviews yet</h4>
+    <% else %>
+      <h4>Reviews (<%= @office.reviews.count %>)</h4>
+      <h5>Avg   <%=  @office.rating.round(1)%> <i class="fas fa-star"></i></h5>
+      <ul class="reviews">
+       <% @office.reviews.each do |review| %>
+       <li> <%= review.rating %> Stars:  "<%= review.content %>"</li>
+       <% end %>
+      </ul>
+    <% end %>
+</div>
+</div>
