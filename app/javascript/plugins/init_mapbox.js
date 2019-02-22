@@ -10,12 +10,12 @@ const initMapbox = () => {
   const flyToOffice = (lat, lng, map) => {
     map.flyTo({
       center: [lat, lng],
-      zoom: 13,
+      zoom: 15,
       speed: 2,
-      curve: 1,
-      easing(t) {
-        return t;
-      }
+      curve: 2,
+      // easing(t) {
+      //   return t;
+      // }
     });
   };
 
