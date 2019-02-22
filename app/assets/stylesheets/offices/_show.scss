@@ -7,9 +7,70 @@
   background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.6));
   border-radius: 5px;
   margin-top: 80px;
-}
+  }
 }
 
 .facilities {
   list-style-type: none;
+}
+
+.inner-container {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+#banner {
+  height: 300px;
+  width: 100vw;
+  background-position: center;
+}
+
+.description {
+  width: 70%;
+  margin: 0;
+  text-align: center;
+}
+
+.cta {
+  background-color: white;
+  width: 30%;
+  height: 250px;
+  position: sticky;
+  margin: 10px;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  padding: 20px;
+  .btn-primary {
+    position: absolute;
+    width: 265px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+.review-container {
+  text-align: center;
+}
+
+.rev-form {
+  background-color: white;
+  width: 100%;
+  height: auto;
+  margin: 10px;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  padding: 20px;
+}
+
+#reviews li {
+  background-color: white;
+  padding: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  list-style-type: none;
+  width: 100%;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+
+
 }
