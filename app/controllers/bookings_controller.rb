@@ -30,8 +30,7 @@ class BookingsController < ApplicationController
     @booking.end_date = booking_params["start_date"].split(" to ").last
     @booking.save
 
-
-    return redirect_to bookings_path if @booking.save && current_user != @booking.user
+    return redirect_to bookings_path if @booking.save && current_user == @booking.user
     return redirect_to owner_bookings_path if @booking.save
 
     render :edit
