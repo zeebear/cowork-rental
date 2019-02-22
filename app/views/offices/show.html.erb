@@ -38,17 +38,14 @@
     <% else %>
     <h4>Reviews (<%= @office.reviews.count %>)</h4>
     <h5>Avg   <%=  @office.rating.round(1)%> <i class="fas fa-star"></i></h5>
+    <% if @bookings.first %>
+    <%= render 'reviews/form', booking: @bookings.first, review: Review.new %>
+    <% end %>
     <ul class="reviews">
      <% @office.reviews.each do |review| %>
      <li> <%= review.rating %> Stars:  "<%= review.content %>"</li>
      <% end %>
    </ul>
-   <% end %>
-   <% if @booking %>
-    <h2>Rate Office</h2>
-    <%= link_to new_booking_review_path(@booking) do %>
-      <p>Stars</p>
-    <% end %>
    <% end %>
  </div>
 </div>
