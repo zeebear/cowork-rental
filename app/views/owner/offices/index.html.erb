@@ -11,7 +11,7 @@
             <%= link_to "Edit my office", edit_office_path(office), class:"btn btn-primary" %>
           </div>
           <div class="card-description">
-            <p class="desc"> <%= office.name %></p>
+            <p class="desc"> <%= link_to office.name, office_path(office.id) %> </p>
           </div>
         </div>
       </div>
