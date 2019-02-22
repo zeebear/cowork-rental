@@ -11,12 +11,11 @@
           <div class="card-img image-border-radius" style="background-image: linear-gradient(-200deg, rgba(0,0,0,0.1) 10%, rgba(0,0,0,0.6) 70%), url(<%= cl_image_path(booking.office.photo) %>);">
             <h3 class="title"><%= link_to booking.office.name, office_path(booking.office_id) %></h3>
             <p><%= link_to "Edit your booking", edit_booking_path(booking), class: "btn btn-primary" %></p>
-            <% if  booking.review%>
+            <% if  booking.review %>
             <%= link_to 'See your review', office_path(booking.office_id), class: "btn btn-primary" %>
             <% else %>
 
-            <%= link_to 'add a review', "#{office_path(booking.office_id)}#reviews" %>
-            <% end %>
+            <%= link_to 'add a review', "#{office_path(booking.office_id)}#reviews", class: "btn btn-primary" %>
 
             <% end %>
           </div>
