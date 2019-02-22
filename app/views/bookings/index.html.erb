@@ -14,7 +14,10 @@
             <% if  booking.review%>
             <%= link_to 'See your review', office_path(booking.office_id), class: "btn btn-primary" %>
             <% else %>
-            <%= link_to 'Add a review', office_path(booking.office_id), class: "btn btn-primary" %>
+
+            <%= link_to 'add a review', "#{office_path(booking.office_id)}#reviews" %>
+            <% end %>
+
             <% end %>
           </div>
           <div class="card-description">
