@@ -32,6 +32,8 @@ class OfficesController < ApplicationController
   end
 
   def show
+    @booking = Booking.where(user: current_user).where(office: @office).first
+    authorize @booking unless @booking.nil?
   end
 
   def edit
