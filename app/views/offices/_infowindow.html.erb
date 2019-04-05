@@ -2,7 +2,9 @@
   <%= link_to office_path(office), class:"office-card-link" do %>
   <div class="office-card map-card">
     <% if office.photo.filename %>
-      <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path office.photo, height: 300, width: 400, crop: :fill %>')">
+      <!-- <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://res.cloudinary.com/dy3nldgkf/<%= cl_image_path office.photo.identifier %>', height: 300, width: 400, crop: :fill)"> -->
+      <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://res.cloudinary.com/dy3nldgkf/image/upload/v1550694549/yjljvnqgein5027osqiq.png')">
+        <!-- the commented out div is the original, I'm substituting the one from the else below to bypass cloudinary problem for now -->
       <% else %>
       <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://res.cloudinary.com/dy3nldgkf/image/upload/v1550694549/yjljvnqgein5027osqiq.png')">
       <% end %>
