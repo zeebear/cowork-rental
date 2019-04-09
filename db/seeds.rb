@@ -151,7 +151,7 @@ end
 puts "Created 4 users. Office database seeded with 20 offices"
 
 puts "Seeding the bookings database"
-200.times do
+20.times do
   b = Booking.new(
     start_date: START_DATES.sample,
     end_date: END_DATES.sample
@@ -175,7 +175,7 @@ def seed_reviews
 end
 
 
-800.times do
+200.times do
   seed_reviews
 end
 
