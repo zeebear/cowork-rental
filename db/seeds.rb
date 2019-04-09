@@ -175,7 +175,7 @@ def seed_reviews
 end
 
 
-200.times do
+25.times do
   seed_reviews
 end
 
