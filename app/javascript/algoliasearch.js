@@ -1,7 +1,7 @@
 import algoliasearch from 'algoliasearch'
 
 var client = algoliasearch('VY8Q24OXEK', '852b7ed8c8fcdc16b484b51f4eefb107');
-var index = client.initIndex('name');
+var index = client.initIndex('Office');
 
 // index.search('something', { hitsPerPage: 10, page: 0 })
 //   .then(function searchDone(content) {
