@@ -169,7 +169,7 @@ def seed_reviews
       rating: rand(1..5),
       content: review
       )
-    r.booking = Booking.find(rand(1..200))
+    r.booking = Booking.find(rand(1..20))
     r.save!
   end
 end
