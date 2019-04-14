@@ -9,7 +9,6 @@ class Owner::BookingsController < ApplicationController
   end
 
   def approve
-    raise
     @booking.update(booking_params)
     redirect_to bookings_path(@booking)
   end
