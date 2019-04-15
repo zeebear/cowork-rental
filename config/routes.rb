@@ -17,6 +17,6 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
-  post 'bookings/:id/approve', to: 'bookings#approve', as: :booking_approve
+  post 'owner/bookings/:id/edit', to: 'owner/bookings#approve', as: :booking_approve
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,4 +1,4 @@
 <%= simple_form_for booking_approve_path(@booking), method: :post do |f| %>
-  <%= f.input :status, collection: ['approve', 'decline'], input_html: { name: 'booking[approve]' } %>
+  <%= f.input :status, collection: ['approve', 'decline'], input_html: { name: 'booking[status]' } %>
   <%= f.submit :submit %>
 <% end %>
