@@ -9,4 +9,8 @@ class Owner::BookingPolicy < ApplicationPolicy
     record.office.user == user
     # why was it still working with just 'true'???
   end
+
+  def approve?
+    record.office.user == user
+  end
 end
