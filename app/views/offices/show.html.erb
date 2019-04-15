@@ -1,5 +1,9 @@
-<div id="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @office.photo, height: 0.3, crop: :fit %>')">
-</div>
+<% if @office.photo.filename %>
+  <div id="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @office.photo, height: 0.3, crop: :fit %>')">
+  </div>
+<% else %>
+  <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://res.cloudinary.com/dy3nldgkf/image/upload/v1550694549/yjljvnqgein5027osqiq.png')">
+<% end %>
 <div class="inner-container">
   <div class="description">
     <h1>
